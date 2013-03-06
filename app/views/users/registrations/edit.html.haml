@@ -1,0 +1,27 @@
+%h2 Edit profile
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name),
+    :html => { :method => :put, :autocomplete => "off" }) do |f|
+  = f.error_notification
+  = f.input :email, :required => true, :autofocus => true
+
+  %legend Change password
+  = f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false
+  = f.input :password_confirmation, :required => false
+
+  - if resource.credit_card_id
+    %legend Existing Credit card
+    = render 'display_credit_card', :credit_card => resource.fetch_credit_card
+    %legend Update Credit Card
+  - else
+    %legend New Credit Card
+  = f.fields_for resource.credit_card || CreditCard.new do |credit_card|
+    = render 'credit_card', :f => credit_card
+
+  %legend Confirmation
+  = f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true
+  .form-actions
+    = f.button :submit, "Update", :class => "btn btn-primary"
+%h3 Cancel my account
+%p
+  Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}.
+= link_to "Back", :back

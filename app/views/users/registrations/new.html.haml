@@ -1,0 +1,12 @@
+%h2 Sign up
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :autocomplete => "off" }) do |f|
+  = f.error_notification
+  = f.input :email, :required => true, :autofocus => true
+  = f.input :password, :required => true
+  = f.input :password_confirmation, :required => true
+  %legend Add Credit Card
+  = f.fields_for resource.credit_card || CreditCard.new do |credit_card|
+    = render 'credit_card', :f => credit_card
+  .form-actions
+    = f.button :submit, "Sign up", :class => "btn btn-primary"
+= render "users/links"

@@ -1,0 +1,15 @@
+
+- 3.times do |row_index|
+  .row.pizza-row
+    - 6.times do |col_index|
+      - index = row_index *6 + col_index
+      .span2
+        .image
+          = image_tag "http://www.gravatar.com/avatar/000000000000000000000000000000#{index}?d=identicon&f=y",
+            :alt => "Pizza #{index}"
+        .details
+          = "20$ - "
+          = link_to "Buy", orders_path( :order => { :amount => 20, :description => "Pizza #{index}" }),
+            :method => :post, :class => "btn btn-small", :disable_with => "Procesing.."
+
+

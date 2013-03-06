@@ -1,0 +1,13 @@
+/*
+ *= require_self
+ *= require twitter-bootstrap-static/bootstrap
+ *= require_tree .
+ */
+
+.pizza-row {
+  margin-top: 20px;
+}
+
+.pizza-row .details {
+  margin-top: 2px;
+}

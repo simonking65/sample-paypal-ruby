@@ -1,0 +1,28 @@
+%h2 Place Order
+
+= simple_form_for @order do |f|
+  = f.error_notification
+  .control-group
+    = f.label :amount, :required => false
+    .controls
+      %label.checkbox
+        = @order.amount
+      = f.hidden_field :amount
+  .control-group
+    = f.label :description, :required => false
+    .controls
+      %label.checkbox
+        = @order.description
+        = f.error :description
+      = f.hidden_field :description
+  - if current_user.credit_card_id
+    = f.input :payment_method, :as => :select, :collection => [ :credit_card, :paypal ], :include_blank => false, :hint => "Update your credit card in Profile page"
+  - else
+    = f.input :payment_method, :as => :select, :collection => [ :credit_card, :paypal ], :include_blank => false
+    %legend New Credit Card
+    = f.fields_for :credit_card, @order.credit_card do |cc|
+      = render "users/registrations/credit_card", :f => cc
+
+  .form-actions
+    = f.button :submit, "Place Order", :class => "btn btn-primary"
+
