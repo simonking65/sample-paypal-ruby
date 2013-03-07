@@ -1,5 +1,4 @@
-
-Sample Application to test New RESTful APIs
+Sample Application to test New REST APIs
 
 ### Installation
 
