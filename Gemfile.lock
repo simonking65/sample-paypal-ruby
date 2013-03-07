@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/paypal/rest-api-sdk-ruby.git
-  revision: 3a1d14165a049cedd81751b4016837ce4346a53e
+  revision: 0a022044f4425f0ea87df161d8a09a9a954b65d1
   specs:
     paypal-sdk-rest (0.5.0)
       paypal-sdk-core (~> 0.2.0)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/paypal/sdk-core-ruby.git
-  revision: 39707bfe89f73a546e6628d3944df4007a939213
+  revision: 1eef5891be7b852257ae89ccf72192e6b3346a9d
   specs:
     paypal-sdk-core (0.2.0)
       multi_json (~> 1.0)

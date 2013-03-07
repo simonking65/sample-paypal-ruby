@@ -12,4 +12,14 @@
           = link_to "Buy", orders_path( :order => { :amount => 20, :description => "Pizza #{index}" }),
             :method => :post, :class => "btn btn-small", :disable_with => "Procesing.."
 
+%br/
+%br/
+%br/
+.row
+  .span6.offset3
+    %p This is a sample application which showcases the new PayPal REST APIs. The app uses mock data to demonstrate how you can use the REST APIs for
+    %ul
+      %li Saving credit card information with PayPal for later use.
+      %li Making payments using a saved credit card.
+      %li Making payments using PayPal.
 
