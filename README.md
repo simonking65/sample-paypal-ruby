@@ -1,5 +1,5 @@
 
-Sample Application to test New RESTful APIs
+Sample Application to demonstrate PayPal's New REST APIs
 
 ### Installation
 
