@@ -5,12 +5,14 @@ class OrdersController < ApplicationController
   end
 
   def create
+    debugger
     @order = current_user.orders.build
     @order.attributes = params[:order]
     @order.return_url = order_execute_url(":order_id")
     @order.cancel_url = order_cancel_url(":order_id")
     if @order.payment_method and @order.save
       if @order.approve_url
+        debugger
         redirect_to @order.approve_url
       else
         redirect_to orders_path, :notice => "Order[#{@order.description}] placed successfully"
@@ -21,6 +23,7 @@ class OrdersController < ApplicationController
   end
 
   def execute
+    debugger
     order = current_user.orders.find(params[:order_id])
     if order.execute(params["PayerID"])
       redirect_to orders_path, :notice => "Order[#{order.description}] placed successfully"
